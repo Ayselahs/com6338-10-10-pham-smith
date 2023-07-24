@@ -4,7 +4,7 @@ const movieAPI = document.querySelector('.movieList')
 const numberOfUser = document.getElementsByClassName('numberOfUser')
 const generateBtn = document.querySelector('.generatebtn')
 const { classList: dropDownMenuClassList} = document.getElementById("dropDownMenu")
-let usersVoted = 0
+//let usersVoted = 0
 
 
 generateBtn.addEventListener('click',displayMovies)
@@ -67,20 +67,37 @@ async function displayMovies() {
       })
       localStorage.setItem("randomMovies", JSON.stringify(movies));
     })
-    usersVoted++
-
-    if (usersVoted === parseInt(localStorage.getItem("numberOfUsers"))) {
-      const getResultButton = document.createElement("button");
-      getResultButton.innerHTML = "Get Result";
-      getResultButton.addEventListener("click", () => {
-        window.location.href = "results.html"
-      })
-      movieListDiv.appendChild(getResultButton)
-    }
 } catch (error) {
     console.error ("unable to get data", error)
   }
 }
+
+// Function to check if all users have voted and update the result button accordingly
+const checkAndUpdateResultButton = () => {
+  const numberOfUsers = parseInt(localStorage.getItem('numberOfUsers'));
+  let usersVoted = 0;
+  for (let i = 1; i <= numberOfUsers; i++) {
+      const userVote = localStorage.getItem(`user${i}Vote`);
+      if (userVote) {
+          usersVoted++;
+      }
+  }
+
+  if (usersVoted === numberOfUsers) {
+      console.log('everyone at homepage')
+      const getResultButton = document.createElement("button");
+      getResultButton.innerHTML = "Get Result";
+      getResultButton.addEventListener("click", () => {
+          window.location.href = "results.html";
+      });
+      const movieListDiv = document.querySelector('.movieList');
+      movieListDiv.appendChild(getResultButton);
+  }
+};
+
+// Check if all users have voted when the page loads or when the number of users changes
+window.addEventListener('DOMContentLoaded', checkAndUpdateResultButton);
+window.addEventListener('storage', checkAndUpdateResultButton);
 
 const toggleDropDown = () => dropDownMenuClassList.toggle("show");
 myButton.addEventListener("click", toggleDropDown);
