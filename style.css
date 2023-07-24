@@ -1,0 +1,178 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    background-color: rgb(174, 255, 174);
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 64px;
+  }
+  
+  h2 {
+    text-align: left;
+    font-size: 30px;
+  }
+  
+  h3{
+    text-align: center;
+    font-size: 22px;
+  }
+  
+  
+  /* Home page styles */
+  .moviePoster{
+    width: 150px;
+    height: 210px;
+  }
+  
+  .movieList {
+    display: block;
+  
+  }
+  
+  .generatebtn, .dropbtn {
+    background-color: brown;
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    border: none;
+    cursor:pointer;
+    box-shadow: 3px 4px black;
+  }
+  
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: purple;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: center;
+    background-color: whitesmoke;
+    min-width: 160px;
+    box-shadow: 0px 5px 10px 0px black;
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 10px 5px;
+    text-decoration: none;
+    display: block;
+    font-size: 20px;
+    text-align: center;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  .show {display: block;}
+  
+  .userButton {
+    display: block;
+    text-decoration: none;
+    background-color: darkgoldenrod;
+    font-size: 18px;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    box-shadow: 2px 4px black;
+    transition: 0.3s ease-in;
+  }
+  
+  .userButton:hover {
+    background-color: blue;
+  }
+  
+  .userSet {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    
+  }
+  
+  /* Results page styles */
+  #resultsPage {
+    padding: 20px;
+  }
+  
+  .votingbutton {
+    background-color: brown;
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+    border: none;
+    cursor:pointer;
+    display: none;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  /* Watched page styles */
+  #watchedPage {
+    padding: 20px;
+  }
+  
+  /* Media queries for responsiveness */
+  @media screen and (max-width: 767px) {
+    /* Mobile devices */
+    #homePage, #resultsPage, #watchedPage {
+      padding: 10px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 25px;
+    }
+  
+    h2 {
+      text-align:left;
+      font-size: 16px;
+    }
+    
+    .dropbtn {
+      padding: 12px;
+      font-size: 16px;
+    }
+  
+    .dropdown-content a {
+      font-size: 16px;
+      text-align: center;
+    }
+  
+    .userButton {
+      font-size: 12px;
+      text-align: center;
+      padding: 10px;
+    }
+  }
+  
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    /* Tablet devices */
+    #homePage, #resultsPage, #watchedPage {
+      padding: 15px;
+    }
+  }
+  
+  @media screen and (min-width: 1024px) {
+    /* Desktop devices */
+    #homePage, #resultsPage, #watchedPage {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+  }
+  

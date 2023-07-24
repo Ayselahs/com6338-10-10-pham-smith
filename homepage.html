@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Recommendation and Voting App</title>
+  <link rel="stylesheet" type="text/css" href="./style.css" /> 
+</head>
+<body>
+  <!-- Home page -->
+  <div class="homePage">
+    <h1> We Give You the Options, You Vote On the Movies!</h1>
+    <h2> Choosing a movie for movie night can be hard, but we got you covered! 
+      <br> <br>
+      Step 1: Click "Select Number of Users" and click on the number of people that will be voting. <br> <br>
+      Step 2: Click "Generate Movies" so we can choose 4 movies for you and your friends or family to vote on. <br> <br>
+      Step 3: Each voter will click on their perspective button to vote on the movie that they want to watch and click "Done" <br> <br>
+      Step 4: Once everyone is done voting, click "Generate Result" to go to the next page and see which movie won! <br><br>
+    </h2>
+    <br> <br>
+  
+    <div class="dropdown">
+      <button
+      id="myButton" class = "dropbtn"> Select Number of Users </button>
+        <div id = "dropDownMenu" class="dropdown-content">
+          <a href="#" onclick="showButtons(1)"> 1 </a>
+          <a href="#" onclick="showButtons(2)"> 2 </a>
+          <a href="#" onclick="showButtons(3)"> 3 </a>
+          <a href="#" onclick="showButtons(4)"> 4 </a>
+          <a href="#" onclick="showButtons(5)"> 5 </a>
+          <a href="#" onclick="showButtons(6)"> 6 </a>
+          <a href="#" onclick="showButtons(7)"> 7 </a>
+          <a href="#" onclick="showButtons(8)"> 8 </a>
+          <a href="#" onclick="showButtons(9)"> 9 </a>
+          <a href="#" onclick="showButtons(10)"> 10 </a>
+        </div>
+        
+    </div>
+    <br> <br> <br>
+    <div class="userSet"></div>
+    <br> <br> <br>
+    <button class="generatebtn"> Generate Movies </button>
+    <br><br> <br>
+    <div class="movieList"></div>
+   
+   
+  </div>
+  <script src="homepage.js"></script>
+</body>
+</html>
