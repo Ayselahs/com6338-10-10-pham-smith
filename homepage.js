@@ -35,7 +35,8 @@ async function shuffleMovies() {
 async function displayMovies() {
   try {
     generateBtn.disabled = true
-    const movieListDiv = document.querySelector('.movieList');
+    const movieListDiv = document.getElementById('movieListContainer');
+    movieListDiv.innerHTML = ""
   
 
     const movies = await shuffleMovies()
@@ -44,26 +45,45 @@ async function displayMovies() {
 
     shuffleMovies().then((movies) => {
       movies.forEach((movie) => {
+        
         const {poster_path,title,release_date,overview} = movie
 
+        // Create a Bootstrap card for each movie
+        const movieCard = document.createElement('div')
+        movieCard.classList.add('col')
+
+        const cardInner = document.createElement('div')
+        cardInner.classList.add('card', 'shadow-sm')
+
+
         const moviePoster = document.createElement('img')
-        moviePoster.classList.add('moviePoster')
+        moviePoster.classList.add('bd-placeholder-img', 'card-img-top', 'img-fluid')
         const posterURL = `https://image.tmdb.org/t/p/w500${poster_path}`
         moviePoster.src = posterURL
-        movieListDiv.appendChild(moviePoster)
+        cardInner.appendChild(moviePoster)
+
+        const cardBody = document.createElement('div')
+        cardBody.classList.add('card-body')
 
 
-        const movieTitle = document.createElement('h3')
+        const movieTitle = document.createElement('h5')
+        movieTitle.classList.add('card-title')
         movieTitle.textContent = title
-        movieListDiv.appendChild(movieTitle)
+        cardBody.appendChild(movieTitle)
     
         const movieReleaseDate = document.createElement('p')
+        movieReleaseDate.classList.add('card-text')
         movieReleaseDate.textContent = release_date
-        movieListDiv.appendChild(movieReleaseDate)
+        cardBody.appendChild(movieReleaseDate)
     
         const movieOverview = document.createElement('p')
+        movieOverview.classList.add('card-text')
         movieOverview.textContent = overview
-        movieListDiv.appendChild(movieOverview)  
+        cardBody.appendChild(movieOverview)  
+
+        cardInner.appendChild(cardBody)
+        movieCard.appendChild(cardInner)
+        movieListDiv.appendChild(movieCard)
       })
       localStorage.setItem("randomMovies", JSON.stringify(movies));
     })
@@ -86,12 +106,15 @@ const checkAndUpdateResultButton = () => {
   if (usersVoted === numberOfUsers) {
       console.log('everyone at homepage')
       const getResultButton = document.createElement("button");
+      
       getResultButton.innerHTML = "Get Result";
+      getResultButton.classList.add("btn", "btn-primary");
       getResultButton.addEventListener("click", () => {
           window.location.href = "results.html";
       });
-      const movieListDiv = document.querySelector('.movieList');
-      movieListDiv.appendChild(getResultButton);
+      const buttonHolder = document.getElementById('buttonHolder');
+      
+      buttonHolder.appendChild(getResultButton);
   }
 };
 
@@ -109,7 +132,7 @@ const showButtons = num => {
 
   for (let i = 1; i <= num; i++) {
     const userButton = document.createElement("a");
-    userButton.classList.add("userButton");
+    userButton.classList.add("btn", "btn-primary");
     userButton.textContent = `User ${i}`;
     userButton.href = `voting.html?user=${i}`;
     userButton.target = "_blank";

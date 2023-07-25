@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="" />
+        <meta
+            name="author"
+            content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+        />
+        <meta name="generator" content="Hugo 0.112.5" />
+        <title>Blog Template · Bootstrap v5.3</title>
+
+        <link
+            rel="canonical"
+            href="https://getbootstrap.com/docs/5.3/examples/blog/"
+        />
+
+        <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+        <!-- Custom styles for this template -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap"
+            rel="stylesheet"
+        />
+        <!-- Custom styles for this template -->
+        <link href="blog.css" rel="stylesheet" />
+        <link href="styles.css" rel="stylesheet" />
+
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+            crossorigin="anonymous"
+        />
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"
+        ></script>
+    </head>
+    <body>
+        <div class="container">
+            <header
+                class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"
+            >
+                <a
+                    href="/"
+                    class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+                >
+                    <svg class="bi me-2" width="40" height="32">
+                        <use xlink:href="#bootstrap" />
+                    </svg>
+                    <span class="fs-4">MOVFI</span>
+                </a>
+
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a
+                            href="index.html"
+                            class="nav-link"
+                            aria-current="page"
+                            >Home</a
+                        >
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="history.html" class="nav-link">History</a>
+                    </li>
+                </ul>
+            </header>
+        </div>
+
+        <main class="container album">
+            <div class="blob-crt">
+                <svg
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 500 500"
+                    width="100%"
+                    id="blobSvg"
+                >
+                    <defs>
+                        <lineargradient
+                            id="gradient"
+                            x1="0%"
+                            y1="0%"
+                            x2="0%"
+                            y2="100%"
+                        >
+                            <stop
+                                offset="0%"
+                                style="stop-color: rgb(147, 11, 11)"
+                            ></stop>
+                            <stop
+                                offset="100%"
+                                style="stop-color: rgb(203, 87, 87)"
+                            ></stop>
+                        </lineargradient>
+                    </defs>
+                    <path id="blob" fill="url(#gradient)">
+                        <animate
+                            attributeName="d"
+                            dur="7800ms"
+                            repeatCount="indefinite"
+                            values="M440.5,320.5Q418,391,355.5,442.5Q293,494,226,450.5Q159,407,99,367Q39,327,31.5,247.5Q24,168,89,125.5Q154,83,219.5,68Q285,53,335.5,94.5Q386,136,424.5,193Q463,250,440.5,320.5Z;M453.78747,319.98894Q416.97789,389.97789,353.96683,436.87838Q290.95577,483.77887,223.95577,447.43366Q156.95577,411.08845,105.64373,365.97789Q54.33169,320.86732,62.67444,252.61056Q71.01719,184.3538,113.01965,135.21007Q155.02211,86.06634,220.52211,66.46683Q286.02211,46.86732,335.5,91.94472Q384.97789,137.02211,437.78747,193.51106Q490.59704,250,453.78747,319.98894Z;M411.39826,313.90633Q402.59677,377.81265,342.92059,407.63957Q283.24442,437.46649,215.13648,432.5428Q147.02853,427.61911,82.23325,380.9572Q17.43796,334.29529,20.45223,250.83809Q23.46649,167.38089,82.5856,115.05707Q141.70471,62.73325,212.19045,63.73015Q282.67618,64.72705,352.67308,84.79839Q422.66998,104.86972,421.43486,177.43486Q420.19974,250,411.39826,313.90633Z;M440.5,320.5Q418,391,355.5,442.5Q293,494,226,450.5Q159,407,99,367Q39,327,31.5,247.5Q24,168,89,125.5Q154,83,219.5,68Q285,53,335.5,94.5Q386,136,424.5,193Q463,250,440.5,320.5Z;"
+                        ></animate>
+                    </path>
+                </svg>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-md-6">
+                    <div
+                        class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+                    >
+                        <div class="col p-4 d-flex flex-column position-static">
+                            <strong
+                                class="d-inline-block mb-2 text-primary-emphasis"
+                                >World</strong
+                            >
+                            <h3 class="mb-0">Featured post</h3>
+                            <div class="mb-1 text-body-secondary">Nov 12</div>
+                            <p class="card-text mb-auto">
+                                This is a wider card with supporting text below
+                                as a natural lead-in to additional content.
+                            </p>
+                        </div>
+                        <div class="col-auto d-none d-lg-block">
+                            <svg
+                                class="bd-placeholder-img"
+                                width="200"
+                                height="250"
+                                xmlns="http://www.w3.org/2000/svg"
+                                role="img"
+                                aria-label="Placeholder: Thumbnail"
+                                preserveAspectRatio="xMidYMid slice"
+                                focusable="false"
+                            >
+                                <title>Placeholder</title>
+                                <rect
+                                    width="100%"
+                                    height="100%"
+                                    fill="#55595c"
+                                />
+                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                                    Thumbnail
+                                </text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-5">
+                <div class="col-md-8">
+                    <article class="blog-post">
+                        <h2 class="display-5 link-body-emphasis mb-1">
+                            Sample blog post
+                        </h2>
+                        <p class="blog-post-meta">
+                            January 1, 2021 by <a href="#">Mark</a>
+                        </p>
+
+                        <p>
+                            This blog post shows a few different types of
+                            content that’s supported and styled with Bootstrap.
+                            Basic typography, lists, tables, images, code, and
+                            more are all supported as expected.
+                        </p>
+                        <hr />
+                        <p>
+                            This is some additional paragraph placeholder
+                            content. It has been written to fill the available
+                            space and show how a longer snippet of text affects
+                            the surrounding content. We'll repeat it often to
+                            keep the demonstration flowing, so be on the lookout
+                            for this exact same string of text.
+                        </p>
+                        <h2>Blockquotes</h2>
+                        <p>This is an example blockquote in action:</p>
+                        <blockquote class="blockquote">
+                            <p>Quoted text goes here.</p>
+                        </blockquote>
+                        <p>
+                            This is some additional paragraph placeholder
+                            content. It has been written to fill the available
+                            space and show how a longer snippet of text affects
+                            the surrounding content. We'll repeat it often to
+                            keep the demonstration flowing, so be on the lookout
+                            for this exact same string of text.
+                        </p>
+                        <h3>Example lists</h3>
+                        <p>
+                            This is some additional paragraph placeholder
+                            content. It's a slightly shorter version of the
+                            other highly repetitive body text used throughout.
+                            This is an example unordered list:
+                        </p>
+                        <ul>
+                            <li>First list item</li>
+                            <li>Second list item with a longer description</li>
+                            <li>Third list item to close it out</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="position-sticky" style="top: 2rem">
+                        <div class="p-4">
+                            <h4 class="fst-italic">Elsewhere</h4>
+                            <ol class="list-unstyled">
+                                <li><a href="#">GitHub</a></li>
+                                <li><a href="#">Twitter</a></li>
+                                <li><a href="#">Facebook</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
+            <p>
+                Blog template built for
+                <a href="https://getbootstrap.com/">Bootstrap</a> by
+                <a href="https://twitter.com/mdo">@mdo</a>.
+            </p>
+            <p class="mb-0">
+                <a href="#">Back to top</a>
+            </p>
+        </footer>
+        <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
