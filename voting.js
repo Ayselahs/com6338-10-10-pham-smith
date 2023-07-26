@@ -44,6 +44,15 @@ document.addEventListener("DOMContentLoaded", function() {
       // Update local storage to indicate that this user has voted
       localStorage.setItem(`user${userNumber}Vote`, JSON.stringify(selectedMovie));
 
+      const message = {
+        type: "userVote",
+        userNumber: userNumber,
+        selectedMovie: selectedMovie.value,
+      };
+      window.parent.postMessage(message,"*");
+      localStorage.setItem("allUsersVoted","true");
+      console.log("everyone voted from voting page")
+
       // Check if all users have voted and send the message if necessary
       const usersVoted = Array.from({ length: numberOfUsers }, (_, i) => i + 1)
         .filter((user) => localStorage.getItem(`user${user}Vote`)).length;
