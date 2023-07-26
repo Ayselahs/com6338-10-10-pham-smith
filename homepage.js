@@ -92,6 +92,8 @@ async function displayMovies() {
   }
 }
 
+let resultBtnAppended = false;
+
 // Function to check if all users have voted and update the result button accordingly
 const checkAndUpdateResultButton = () => {
   const numberOfUsers = parseInt(localStorage.getItem('numberOfUsers'));
@@ -103,7 +105,8 @@ const checkAndUpdateResultButton = () => {
       }
   }
 
-  if (usersVoted === numberOfUsers) {
+  if (usersVoted === numberOfUsers && !resultBtnAppended) {
+      resultBtnAppended = true;
       console.log('everyone at homepage')
       const getResultButton = document.createElement("button");
       
@@ -115,11 +118,12 @@ const checkAndUpdateResultButton = () => {
       const buttonHolder = document.getElementById('buttonHolder');
       
       buttonHolder.appendChild(getResultButton);
+      
   }
 };
 
 // Check if all users have voted when the page loads or when the number of users changes
-window.addEventListener('DOMContentLoaded', checkAndUpdateResultButton);
+//window.addEventListener('DOMContentLoaded', checkAndUpdateResultButton);
 window.addEventListener('storage', checkAndUpdateResultButton);
 
 const toggleDropDown = () => dropDownMenuClassList.toggle("show");
@@ -156,4 +160,5 @@ window.addEventListener("click", (event) => {
 
   function handleUserVote(userNumber, movieTitle) {
     localStorage.setItem(`user${userNumber}Vote`, movieTitle);
+    
   }
