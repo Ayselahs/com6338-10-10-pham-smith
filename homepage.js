@@ -1,10 +1,10 @@
 const userSet = document.querySelector(".userSet");
 const myButton = document.getElementById("myButton");
 const movieAPI = document.querySelector('.movieList')
-const numberOfUser = document.getElementsByClassName('numberOfUser')
+//const numberOfUser = document.getElementsByClassName('numberOfUser')
 const generateBtn = document.querySelector('.generatebtn')
 const { classList: dropDownMenuClassList} = document.getElementById("dropDownMenu")
-//let usersVoted = 0
+
 
 
 generateBtn.addEventListener('click',displayMovies)
@@ -94,15 +94,35 @@ async function displayMovies() {
 
 let resultBtnAppended = false;
 
+const numberOfUsers = parseInt(localStorage.getItem('numberOfUsers'));
+let votesReceived = 0
+
+window.addEventListener("message", handleUserMessage);
+
+function handleUserMessage(e) {
+  if (e.data.type === "userVote") {
+    const { userNumber, selectedMovie } = e.data;
+    localStorage.setItem(`user${userNumber}Vote`, selectedMovie)
+    console.log("error 1!")
+  } else if (e.data.type === "allUsersVoted") {
+    checkAndUpdateResultButton()
+    console.log("error 2!")
+  }
+}
+
 // Function to check if all users have voted and update the result button accordingly
+
+// NEED TO FOCUS ON THIS FUNCTION - THIS IS WHERE THE ERROR FOR THE GET RESULT BUTTON IS!
 const checkAndUpdateResultButton = () => {
   const numberOfUsers = parseInt(localStorage.getItem('numberOfUsers'));
   let usersVoted = 0;
   for (let i = 1; i <= numberOfUsers; i++) {
+      console.log("error 3 (for loop)!")
       const userVote = localStorage.getItem(`user${i}Vote`);
       if (userVote) {
           usersVoted++;
       }
+      console.log("error 4 (for loop)!")
   }
 
   if (usersVoted === numberOfUsers && !resultBtnAppended) {
@@ -114,6 +134,7 @@ const checkAndUpdateResultButton = () => {
       getResultButton.classList.add("btn", "btn-primary");
       getResultButton.addEventListener("click", () => {
           window.location.href = "results.html";
+          console.log("error 5!")
       });
       const buttonHolder = document.getElementById('buttonHolder');
       
@@ -125,6 +146,9 @@ const checkAndUpdateResultButton = () => {
 // Check if all users have voted when the page loads or when the number of users changes
 //window.addEventListener('DOMContentLoaded', checkAndUpdateResultButton);
 window.addEventListener('storage', checkAndUpdateResultButton);
+
+
+// Dropdown menu functions below, do not need to fixed
 
 const toggleDropDown = () => dropDownMenuClassList.toggle("show");
 myButton.addEventListener("click", toggleDropDown);
