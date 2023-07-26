@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Display the movies and the voting form for the specific user on the voting page
   const votingFormPage = document.createElement('form');
+  const votes = {}
 
   movies.forEach((movie, index) => {
     const { title } = movie;
@@ -28,6 +29,10 @@ document.addEventListener("DOMContentLoaded", function() {
     votingFormPage.appendChild(movieInput);
     votingFormPage.appendChild(movieLabel);
     votingFormPage.appendChild(document.createElement('br'));
+
+    movieInput.addEventListener('change', () => { 
+      votes[title] = (votes[title] || 0) + 1
+    })
   });
 
   const doneButton = document.createElement('button');
@@ -37,17 +42,32 @@ document.addEventListener("DOMContentLoaded", function() {
     if (selectedMovie) {
       alert(`User ${userNumber} voted successfully for "${selectedMovie.value}"!`);
       // Update local storage to indicate that this user has voted
-      localStorage.setItem(`user${userNumber}Vote`, selectedMovie.value);
+      localStorage.setItem(`user${userNumber}Vote`, JSON.stringify(selectedMovie));
 
       // Check if all users have voted and send the message if necessary
       const usersVoted = Array.from({ length: numberOfUsers }, (_, i) => i + 1)
-        .filter(user => localStorage.getItem(`user${user}Vote`)).length;
+        .filter((user) => localStorage.getItem(`user${user}Vote`)).length;
         
       if (usersVoted === numberOfUsers) {
         // Send message to homepage to indicate all users have voted
         window.parent.postMessage({ allUsersVoted: true }, '*');
         localStorage.setItem('allUsersVoted', 'true');
         console.log('everyone voted from voting')
+      }
+
+      let mostVotes = null
+      let maxVotes = 0
+      for (const title in votes) {
+        if (votes[title] > maxVotes) {
+          maxVotes = votes[title]
+          mostVotes = title
+        }
+      }
+
+      if (mostVotes) {
+        localStorage.setItem('mostVotes', mostVotes);
+      } else {
+        console.error('No movie received the most votes')
       }
 
       // Close the voting tab after voting
