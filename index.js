@@ -1,3 +1,4 @@
+
 //const userSet = document.querySelector(".userSet");
 //const myButton = document.getElementById("myButton");
 const movieAPI = document.querySelector('.movieList')
@@ -5,6 +6,7 @@ const movieAPI = document.querySelector('.movieList')
 const generateBtn = document.querySelector('.generatebtn')
 //const { classList: dropDownMenuClassList} = document.getElementById("dropDownMenu")
 //let usersVoted = 0
+const movieListDiv = document.getElementById('movieListContainer');
 
 
 generateBtn.addEventListener('click',displayMovies)
@@ -35,7 +37,7 @@ async function shuffleMovies() {
 async function displayMovies() {
   try {
     generateBtn.disabled = true;
-    const movieListDiv = document.getElementById('movieListContainer');
+    
 
     const movies = await shuffleMovies();
     console.log(movies);
@@ -86,6 +88,7 @@ async function displayMovies() {
       movieCard.addEventListener('click', () => {
         saveFavoriteMovie(movie);
       });
+      localStorage.setItem("randomMovies", JSON.stringify(movies))
     });
   } catch (error) {
     console.error("unable to get data", error);
@@ -108,13 +111,15 @@ function saveFavoriteMovie(movie) {
     alert(`"${movie.title}" is already in your favorites.`);
   }
 }
-  
+  /*
    // Add event listener to each movie to add it to favorites on click
    movieListDiv.addEventListener('click', () => {
     saveFavoriteMovie(movie);
+    
   });
+  */
 
-localStorage.setItem("randomMovies", JSON.stringify(movies))
+
 
 // Function to navigate to the favorites page
 function goToFavoritesPage() {
