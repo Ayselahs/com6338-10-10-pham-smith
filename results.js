@@ -18,7 +18,7 @@ const fetchTMDb = async (movieId, apiKeyTMDb) => {
 const fetchOMDb = async (title, apiKeyOMDb) => {
     try {
         console.log(movieTitle)
-        const res = await fetch (`http://www.omdbapi.com/?apikey=${apiKeyOMDb}&t=${encodeURIComponent(title)}`)
+        const res = await fetch (`https://www.omdbapi.com/?apikey=${apiKeyOMDb}&t=${encodeURIComponent(title)}`)
         const movieData = await res.json()
         return movieData
     } catch (error) {
