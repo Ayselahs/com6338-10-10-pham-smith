@@ -3,97 +3,100 @@
 // Get from local storage
 // TMDb API: eb27c13c3073bd1a4e7f1f8f94714eaf
 // OMDb API: 28a97e2f
+
+const fetchTMDb = async (movieId, apiKeyTMDb) => {
+    try {
+        const res = await fetch (`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKeyTMDb}`)
+        const movieData = await res.json()
+        return movieData
+    } catch (error) {
+        console.error ('Unable to get data', error)
+        return null
+    }
+}
+
+const fetchOMDb = async (title, apiKeyOMDb) => {
+    try {
+        console.log(movieTitle)
+        const res = await fetch (`http://www.omdbapi.com/?apikey=${apiKeyOMDb}&t=${encodeURIComponent(title)}`)
+        const movieData = await res.json()
+        return movieData
+    } catch (error) {
+        console.error ('Unable to get data', error)
+        return null
+    }
+}
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
-    const mostVoted = localStorage.getItem('mostVotes')
+    const urlParams = new URLSearchParams(window.location.search)
+    const movieId = urlParams.get('movieId')
+    const apiKeyTMDb = 'eb27c13c3073bd1a4e7f1f8f94714eaf'
+    const apiKeyOMDb = '28a97e2f'
 
-    if (mostVoted) {
-        const movieTitleEl = document.getElementById('movieTitle')
-        const movieOverviewEl = document.getElementById('movieOverview')
-        const moviePosterEl = document.getElementById('moviePoster')
-        const movieDirectorEl = document.getElementById('movieDirector')
-        const yearEl = document.getElementById('year')
-        const movieGenreEl = document.getElementById('movieGenre')
-        const movieRatingEl = document.getElementById('movieRating')
-        const mainActorsEl = document.getElementById('mainActors')
-        const movieRuntimeEl = document.getElementById('movieRuntime')
-        const moviePlotEl = document.getElementById('moviePlot')
+    fetchTMDb(movieId, apiKeyTMDb)
+    .then((movieDataTMDb) => {
+        if (movieDataTMDb) {
+            console.log(movieDataTMDb)
 
-        movieTitleEl.textContent = mostVoted
-        
-    
-        
-        const fetchMovieDetails = async (movieId) => {
-            const apiKeyTMDb = 'eb27c13c3073bd1a4e7f1f8f94714eaf'
-            const apiKeyOMDb = '28a97e2f'
-            try {
-                let movieData
-                
-                // Fetch movie details from TMDb API
-                const responseTMDb = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKeyTMDb}&query=${encodeURIComponent(movieId)}`)
-                const dataTMDb = await responseTMDb.json()
 
-                if (dataTMDb.results && dataTMDb.results.length > 0) {
-                    movieData = dataTMDb.results[0]
-                } else {
-                    const responseOMDb = await fetch(`http://www.omdbapi.com/?apikey=${apiKeyOMDb}&t=${encodeURIComponent(movieId)}`)
-                    const dataOMDb = await responseOMDb.json()
+            const movieTitle = document.getElementById('movieTitle')
+            const moviePoster = document.getElementById('moviePoster')
+            const movieOverview = document.getElementById('movieOverview')
 
-                    if (dataOMDb.Title) {
-                        movieData = dataOMDb
-                    }
-                }
-                
+            movieTitle.textContent = movieDataTMDb.title
+            moviePoster.src = `https://image.tmdb.org/t/p/w500${movieDataTMDb.poster_path}`
+            movieOverview.textContent = movieDataTMDb.overview
+            
+            fetchOMDb(movieTitle.textContent, apiKeyOMDb)
+            .then((movieDataOMDb) => {
+                if (movieDataOMDb) {
+                    console.log(movieDataOMDb)
 
-                // Fetch movie details from OMDb API
-                
-                
+                    const movieDirector = document.getElementById('movieDirector')
+                    const year = document.getElementById('year')
+                    const movieGenre = document.getElementById('movieGenre')
+                    const movieRating = document.getElementById('movieRating')
+                    const movieRuntime = document.getElementById('movieRuntime')
+                    const moviePlot = document.getElementById('moviePlot')
+                    const mainActors = document.getElementById('mainActors')
 
-                // Determining witch API to use
-                
+                    movieDirector.textContent = movieDataOMDb.Director
+                    year.textContent = movieDataOMDb.Year
+                    movieGenre.textContent = movieDataOMDb.Genre
+                    movieRating.textContent = movieDataOMDb.Rated
+                    movieRuntime.textContent = movieDataOMDb.Runtime
+                    moviePlot.textContent = movieDataOMDb.Plot
 
-                if (movieData) {
-                    movieOverviewEl.textContent = movieData.overview
-
-                    movieDirectorEl.textContent = movieData.Director
-                    yearEl.textContent = movieData.Year
-                    movieGenreEl.textContent = movieData.Genre
-                    movieRatingEl.textContent = movieData.Rating
-                    movieRuntimeEl.textContent = movieData.Runtime
-                    moviePlotEl.textContent = movieData.Plot
-                    if (movieData.poster_path) {
-                        moviePosterEl.src = `https://image.tmdb.org/t/p/w500${movieData.poster_path}`
-                    }
-
-                    if (movieData.Actors && typeof movieData.Actors === 'string') {
-                        const actorList = movieData.Actors.split(',').map(actor => {
-                            const actorItem = document.createElement('li')
-                            actorItem.textContent = actor.trim()
-                            return actorItem
+                    if (movieDataOMDb.Actors && typeof movieDataOMDb.Actors === 'string') {
+                        const actorList = movieDataOMDb.Actors.split(',').map((actor) => {
+                            const actorName = document.createElement('li')
+                            actorName.textContent = actor.trim()
+                            return actorName
                         })
-                        mainActorsEl.innerHTML = ''
-                        actorList.forEach(actorItem => mainActorsEl.appendChild(actorItem))
+                        mainActors.innerHTML = ''
+                        actorList.forEach((actorName) => {
+                            mainActors.appendChild(actorName)
+                        })
                     } else {
-                        console.error('No actors received')
+                        console.error('Unable to get movie actors from OMDb')
                     }
                     
                 } else {
-                    console.error('No movie data received')
+                    console.error('Unable to get movie data from OMDb')
                 }
-            } catch (error) { 
-                console.error('Error fetching movie details: ', error)
-            }
+            })
+            .catch((error) => {
+                console.error('Unable to get data from OMDb', error)
+            })
+        } else {
+            console.error('Unable to get data from TMDb')
         }
-    
-
-        fetchMovieDetails(mostVoted)
-    } else { 
-        const errorEl = document.getElementById('error')
-        errorEl.textContent = 'No movie received the most votes'
-    }
-
-    
-
+    })
+    .catch((error) => {
+        console.error('Unable to get data from TMDb', error)
+    })
 })
 
-
-
+    

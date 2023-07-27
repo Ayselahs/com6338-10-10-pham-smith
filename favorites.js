@@ -15,30 +15,38 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
       favoriteMovies.forEach((movie) => {
         const { id, poster_path, title, release_date, overview } = movie;
-  
-        const movieCard = document.createElement('div');
-        movieCard.classList.add('movieCard');
-  
-        const moviePoster = document.createElement('img');
-        moviePoster.classList.add('moviePoster');
-        const posterURL = `https://image.tmdb.org/t/p/w500${poster_path}`;
-        moviePoster.src = posterURL;
-        movieCard.appendChild(moviePoster);
-  
-        const movieTitle = document.createElement('h3');
-        movieTitle.textContent = title;
-        movieCard.appendChild(movieTitle);
-  
-        const movieReleaseDate = document.createElement('p');
+        
+        const movieDiv = document.createElement('div');
+        movieDiv.classList.add('row', 'text-center');
+        favoriteMoviesListDiv.appendChild(movieDiv);
+
+        const movieReleaseDate = document.createElement('div');
+        movieReleaseDate.classList.add('col-3', 'themed-grid-col');
         movieReleaseDate.textContent = release_date;
-        movieCard.appendChild(movieReleaseDate);
+        movieDiv.appendChild(movieReleaseDate);
+
+        const movieTitle = document.createElement('div');
+        movieTitle.classList.add('col-3', 'themed-grid-col');
+        movieTitle.textContent = title;
+        console.log(title);
+        console.log(movieTitle);
+        movieDiv.appendChild(movieTitle);
+
+        const movieLinks = document.createElement('div');
+        const link = document.createElement('a');
+        link.textContent = "View Details";
+        link.href = `./results.html?movieId=${id}`;
+        movieLinks.classList.add('col-3', 'themed-grid-col');
+        movieLinks.appendChild(link);
+        movieDiv.appendChild(movieLinks);
   
-        const movieOverview = document.createElement('p');
-        movieOverview.textContent = overview;
-        movieCard.appendChild(movieOverview);
+        
+  
+        
   
         // Create the Remove button
         const removeButton = document.createElement('button');
+        removeButton.classList.add('col-3', 'themed-grid-col', 'shadow-sm');
         removeButton.setAttribute("id","removeBtn");
         removeButton.textContent = 'Remove';
         removeButton.addEventListener('click', () => {
@@ -47,8 +55,8 @@ document.addEventListener("DOMContentLoaded", function() {
           displayFavoriteMovies();
         });
   
-        movieCard.appendChild(removeButton);
-        favoriteMoviesListDiv.appendChild(movieCard);
+        movieDiv.appendChild(removeButton);
+        //favoriteMoviesListDiv.appendChild(movieCard);
       });
     }
   }
