@@ -19,11 +19,11 @@
             crossorigin="anonymous"
         ></script>
     </head>
-    <body>
+    <body class="text-center">
         <!-- Header -->
-        <div class="container">
+        <div class="container text-center">
             <header
-                class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"
+                class="d-flex flex-wrap justify-content-between py-3 mb-4 border-bottom "
             >
                 <a
                     href="/"
@@ -32,14 +32,14 @@
                     <svg class="bi me-2" width="40" height="32">
                         <use xlink:href="#bootstrap" />
                     </svg>
-                    <span class="fs-4">MOVFI</span>
+                    <span class="fs-4">MOVIE TIME</span>
                 </a>
 
                 <ul class="nav nav-pills">
                     <li class="nav-item">
                         <a
                             href="index.html"
-                            class="nav-link active"
+                            class="nav-link active "
                             aria-current="page"
                             >Home</a
                         >
@@ -92,21 +92,25 @@
             </div>
             <section class="py-5 text-center container bkg-helper">
                 <div class="row py-lg-5">
-                    <div class="col-lg-6 col-md-8 mx-auto">
-                        <h1 class="fw-light">
-                            We Give You the Options, You Vote On the Movies!
+                    <div class="col-lg-6 col-md-8 mx-auto ">
+                        <h1 class="fw-bold">
+                            Picking a Movie is Too Hard? <br> <br>
+                            We Can Help! We Will Narrow Down the List For You!
+                            
                         </h1>
-                        <p class="lead text-body-secondary">
+                        <br> <br>
+                        <p class="fs-2 fw-medium">
                             Choosing a movie for movie night can be hard, but we
-                            got you covered! Select the number of participants
-                            and click "Generate Movies" to get started!
+                            got you covered! All you have to do is select a movie from our list, and add it to your favorites list by clicking on it!
+                            Simple as that! <br> <br>
+                            On the Favorites page, you can access details of the movie by clicking on the movie poster, and you can also remove the movie if you don't think it's your jam!
                         </p>
                     </div>
                 </div>
             </section>
             <!-- Section -->
             <div class="album py-5 bg-body-tertiary">
-                <div class="container">
+                <div class="container d-flex justify-content-center">
                     <div
                         id="buttonHolder"
                         class="btn-group"
@@ -115,7 +119,7 @@
                     >
                         <button
                             type="button"
-                            class="btn btn-primary generatebtn"
+                            class="btn btn-danger btn-lg btn-block generatebtn fw-bold fs-1"
                         >
                             Generate Movies
                         </button>
