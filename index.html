@@ -18,12 +18,18 @@
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
             crossorigin="anonymous"
         ></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline+Text:wght@300;500&family=Oswald:wght@400;500&family=Poiret+One&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300&display=swap"
+            rel="stylesheet"
+        />
     </head>
     <body class="text-center">
         <!-- Header -->
         <div class="container text-center">
             <header
-                class="d-flex flex-wrap justify-content-between py-3 mb-4 border-bottom "
+                class="d-flex flex-wrap justify-content-between py-3 mb-4 border-bottom"
             >
                 <a
                     href="/"
@@ -32,21 +38,23 @@
                     <svg class="bi me-2" width="40" height="32">
                         <use xlink:href="#bootstrap" />
                     </svg>
-                    <span class="fs-3">MOVIE TIME</span>
+                    <span class="fs-2 logo">MOVIE TIME</span>
                 </a>
 
                 <ul class="nav nav-pills">
                     <li class="nav-item">
                         <a
                             href="index.html"
-                            class="nav-link active fs-4 "
+                            class="nav-link active fs-4"
                             aria-current="page"
                             >Home</a
                         >
                     </li>
 
                     <li class="nav-item">
-                        <a href="favorites.html" class="nav-link fs-4">Favorites</a>
+                        <a href="favorites.html" class="nav-link fs-4"
+                            >Favorites</a
+                        >
                     </li>
                 </ul>
             </header>
@@ -90,26 +98,34 @@
                     </path>
                 </svg>
             </div>
-            <section class="py-5 text-center container bkg-helper">
+            <section class="album py-5">
                 <div class="row py-lg-5">
-                    <div class="col-lg-6 col-md-8 mx-auto ">
-                        <h1 class="fw-bold">
-                            Picking a Movie is Too Hard? <br> <br>
-                            We Can Help! We Will Narrow Down the List For You!
-                            
+                    <div class="col-lg-6 col-md-8 mx-auto">
+                        <h1 class="fs-1 fw-bold">
+                            Picking a Movie is Too Hard? <br />
+                            <br />
                         </h1>
-                        <br> <br>
-                        <p class="fs-2 fw-medium">
+                        <h2 class="fs-2">
+                            We Can Help! We Will Narrow Down the List For You!
+                        </h2>
+                        <br />
+                        <br />
+                        <h3 class="fs-3 fw-medium">
                             Choosing a movie for movie night can be hard, but we
-                            got you covered! All you have to do is select a movie from our list, and add it to your favorites list by clicking on it!
-                            Simple as that! <br> <br>
-                            On the Favorites page, you can access details of the movie by clicking on the movie poster, and you can also remove the movie if you don't think it's your jam!
-                        </p>
+                            got you covered! All you have to do is select a
+                            movie from our list, and add it to your favorites
+                            list by clicking on it! Simple as that! <br />
+                            <br />
+                            On the Favorites page, you can access details of the
+                            movie by clicking on the movie poster, and you can
+                            also remove the movie if you don't think it's your
+                            jam!
+                        </h3>
                     </div>
                 </div>
             </section>
             <!-- Section -->
-            <div class="album py-5 bg-transparent">
+            <div class="album py-5">
                 <div class="container d-flex justify-content-center">
                     <div
                         id="buttonHolder"
@@ -135,7 +151,7 @@
             </div>
         </main>
         <!-- Footer -->
-        <footer class="text-body-secondary py-5">
+        <footer class="album text-body-secondary py-5">
             <div class="container">
                 <p class="float-end mb-1">
                     <a href="#">Back to top</a>
