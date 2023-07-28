@@ -15,10 +15,10 @@ const fetchTMDb = async (movieId, apiKeyTMDb) => {
     }
 }
 
-const fetchOMDb = async (title, apiKeyOMDb) => {
+const fetchOMDb = async (title, year, apiKeyOMDb) => {
     try {
         console.log(movieTitle)
-        const res = await fetch (`https://www.omdbapi.com/?apikey=${apiKeyOMDb}&t=${encodeURIComponent(title)}`)
+        const res = await fetch (`https://www.omdbapi.com/?apikey=${apiKeyOMDb}&t=${encodeURIComponent(title)}&y=${year}`)
         const movieData = await res.json()
         return movieData
     } catch (error) {
@@ -44,12 +44,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const movieTitle = document.getElementById('movieTitle')
             const moviePoster = document.getElementById('moviePoster')
             const movieOverview = document.getElementById('movieOverview')
+            const movieYear = movieDataTMDb.release_date.split('-')[0]
 
             movieTitle.textContent = movieDataTMDb.title
             moviePoster.src = `https://image.tmdb.org/t/p/w500${movieDataTMDb.poster_path}`
             movieOverview.textContent = movieDataTMDb.overview
             
-            fetchOMDb(movieTitle.textContent, apiKeyOMDb)
+            fetchOMDb(movieTitle.textContent, movieYear, apiKeyOMDb)
             .then((movieDataOMDb) => {
                 if (movieDataOMDb) {
                     console.log(movieDataOMDb)
