@@ -37,9 +37,7 @@ body {
   }
   
   /* Bootstrap styles */
-  .album {
-    background-color: rgba(241, 236, 236, 0.897);
-}
+  
 
 .blob-crt {
     position: fixed;
@@ -224,7 +222,7 @@ body {
     }
   
     h2 {
-      text-align:left;
+      text-align: center;
       font-size: 16px;
     }
     
