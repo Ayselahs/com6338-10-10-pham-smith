@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
       
         // Create the Remove button
         const removeButton = document.createElement('button');
-        removeButton.classList.add('col-3', 'themed-grid-col', 'shadow-sm');
+        removeButton.classList.add('col-3', 'themed-grid-col', 'shadow-sm', 'removeBtn');
         removeButton.setAttribute("id","removeBtn");
         removeButton.textContent = 'Remove';
         removeButton.addEventListener('click', () => {

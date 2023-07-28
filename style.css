@@ -28,7 +28,9 @@ body {
   }
 
   
-
+.removeBtn {
+  color: red;
+}
   .logo {
     font-family: 'Poiret One', cursive; 
     color: brown;
