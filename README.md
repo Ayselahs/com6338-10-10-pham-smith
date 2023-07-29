@@ -7,7 +7,7 @@ First page (Homepage): The user can simply click on "Generate Movies" to get fou
 
 Second page (Favorites): On this page, the user can see all the movies that they have added in chronological order. Each movie shows the release date, title, "View Details" option, and remove. If they no longer want to save a movie, they can click "Remove"
 
-Third page (View Details): When the user wants to get more information on a movie that they have added, clicking "View Details" from Favorites will take them to this page which shows the poster img, title, overview, details such as genre, rating, runtim, plot, and main actors. This page is receiving the information from Rotten Tomatoes API (2nd API)
+Third page (View Details): When the user wants to get more information on a movie that they have added, clicking "View Details" from Favorites will take them to this page which shows the poster img, title, overview, details such as genre, rating, runtime, plot, and main actors. This page is receiving the information from Rotten Tomatoes API (2nd API)
 
 
 Notes: 
