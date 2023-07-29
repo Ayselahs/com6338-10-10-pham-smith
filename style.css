@@ -4,26 +4,48 @@ body {
     background-color: rgb(174, 255, 174);
     background-size: cover;
     
-  }
+}
   
-  h1 {
+h1 {
     font-family: 'Roboto Condensed', sans-serif; 
     font-weight: semi-bold;
     text-align: center;
     font-size: 72px;
-  }
+}
   
-  h2 {
+h2 {
     font-family: 'Roboto Condensed', sans-serif; 
     text-align: center;
     font-size: 30px;
-  }
+}
   
-  h3{
+h3{
     font-family: 'Roboto Condensed', sans-serif; 
     text-align: center;
     font-size: 20px;
-  }
+}
+
+
+
+.nav-pills .nav-link {
+  color: brown;
+  
+}
+
+.nav-pills .nav-link.active {
+  color: white;
+  background-color: brown !important;
+}
+
+.nav-pills .nav-link:hover {
+  color: black;
+  
+}
+.nav-pills .nav-item .active {
+  color: white;
+  background-color: brown;
+}
+
 
   
 .removeBtn {
