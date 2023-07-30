@@ -27,12 +27,12 @@ document.addEventListener("DOMContentLoaded", function() {
         favoriteMoviesListDiv.appendChild(movieDiv);
 
         const movieReleaseDate = document.createElement('div');
-        movieReleaseDate.classList.add('col-3', 'themed-grid-col');
+        movieReleaseDate.classList.add('col-3', 'themed-grid-col', 'text-style');
         movieReleaseDate.textContent = release_date;
         movieDiv.appendChild(movieReleaseDate);
 
         const movieTitle = document.createElement('div');
-        movieTitle.classList.add('col-3', 'themed-grid-col');
+        movieTitle.classList.add('col-3', 'themed-grid-col', 'text-style');
         movieTitle.textContent = title;
         console.log(title);
         console.log(movieTitle);
@@ -42,14 +42,14 @@ document.addEventListener("DOMContentLoaded", function() {
         const link = document.createElement('a');
         link.textContent = "View Details";
         link.href = `./results.html?movieId=${id}`;
-        movieLinks.classList.add('col-3', 'themed-grid-col');
+        movieLinks.classList.add('col-3', 'themed-grid-col', 'text-style');
         movieLinks.appendChild(link);
         movieDiv.appendChild(movieLinks);
         // View details will take place in another page (3rd page) to retrieve data from the 2nd API
       
         // Create the Remove button
         const removeButton = document.createElement('button');
-        removeButton.classList.add('col-3', 'themed-grid-col', 'shadow-sm', 'removeBtn');
+        removeButton.classList.add('col-3', 'themed-grid-col', 'shadow-sm', 'removeBtn', 'text-style');
         removeButton.setAttribute("id","removeBtn");
         removeButton.textContent = 'Remove';
         removeButton.addEventListener('click', () => {

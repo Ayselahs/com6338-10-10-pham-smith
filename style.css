@@ -1,29 +1,81 @@
 /* General styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: rgb(174, 255, 174);
+    
     background-size: cover;
     
-  }
+}
   
-  h1 {
+h1 {
     font-family: 'Roboto Condensed', sans-serif; 
     font-weight: semi-bold;
     text-align: center;
     font-size: 72px;
-  }
+}
   
-  h2 {
+h2 {
     font-family: 'Roboto Condensed', sans-serif; 
     text-align: center;
     font-size: 30px;
-  }
+}
   
-  h3{
+h3{
     font-family: 'Roboto Condensed', sans-serif; 
     text-align: center;
     font-size: 20px;
-  }
+}
+
+p {
+    font-family: 'Roboto Condensed', sans-serif; 
+    text-align: center;
+    font-size: 20px;
+}
+
+ul {
+    font-family: 'Roboto Condensed', sans-serif; 
+    text-align: center;
+    font-size: 20px;
+    
+}
+li {
+  list-style-type: none;
+}
+
+
+.image-container {
+  display: flex;
+  justify-content: center; /* Horizontally center the image and its container */
+  align-items: center; /* Vertically center the image and its container */
+}
+
+
+
+.text-style {
+    font-family: 'Roboto Condensed', sans-serif; 
+    text-align: center;
+    font-size: 18px;
+    
+}
+
+.nav-pills .nav-link {
+  color: brown;
+  
+}
+
+.nav-pills .nav-link.active {
+  color: white;
+  background-color: brown !important;
+}
+
+.nav-pills .nav-link:hover {
+  color: black;
+  
+}
+.nav-pills .nav-item .active {
+  color: white;
+  background-color: brown;
+}
+
 
   
 .removeBtn {
@@ -116,15 +168,15 @@ body {
 .themed-grid-col {
   padding-top: .75rem;
   padding-bottom: .75rem;
-  background-color: rgba(112.520718, 44.062154, 249.437846, .15);
-  border: 1px solid rgba(112.520718, 44.062154, 249.437846, .3);
+  background-color: rgba(171, 168, 175, 0.15);
+  border: 1px solid rgba(102, 102, 104, 0.3);
 }
 
 .themed-container {
   padding: .75rem;
   margin-bottom: 1.5rem;
-  background-color: rgba(112.520718, 44.062154, 249.437846, .15);
-  border: 1px solid rgba(112.520718, 44.062154, 249.437846, .3);
+  background-color: rgba(171, 168, 175, 0.15);
+  border: 1px solid rgba(171, 168, 175, 0.3);
 }
   
   /* Home page styles */
